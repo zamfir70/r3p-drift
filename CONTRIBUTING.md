@@ -12,7 +12,7 @@ This is a research benchmark for testing moral identity continuity in AI agents,
 
 - **Issues**: Feel free to open issues for bugs, documentation improvements, or questions about the benchmark
 - **Discussions**: Use GitHub Discussions for broader questions about the research approach
-- **Contact**: For research collaborations, contact mark@acronkc.com
+- **Contact**: For research collaborations, contact mark@acornkc.com
 
 ## Development Standards
 

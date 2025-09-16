@@ -35,7 +35,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import json; assert json.load(open('qa/timeline_docker.json', 'r'))" || exit 1
 
 # Labels for metadata
-LABEL maintainer="Mark Kuykendall <mark@acronkc.com>"
+LABEL maintainer="Mark Kuykendall <mark@acornkc.com>"
 LABEL version="1.0.0"
 LABEL description="R3P-Drift Moral Identity Continuity Benchmark - Docker Environment"
 LABEL repository="https://github.com/zamfir70/r3p-drift"

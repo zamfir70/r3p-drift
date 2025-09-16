@@ -34,7 +34,7 @@ This repository deals with AI safety research. All interactions should:
 
 This repository is maintained by Phantom Limb Holdings for research submission purposes.
 
-Instances of unacceptable behavior may be reported by contacting mark@acronkc.com.
+Instances of unacceptable behavior may be reported by contacting mark@acornkc.com.
 
 All reports will be reviewed and investigated promptly and fairly.
 

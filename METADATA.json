@@ -7,5 +7,5 @@
   "license": "MIT",
   "data_access": "synthetic dilemmas only; no private human data",
   "evaluation_type": ["automated_task_evaluation", "benchmark"],
-  "contact_email": "mark@acronkc.com"
+  "contact_email": "mark@acornkc.com"
 }

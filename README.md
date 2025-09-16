@@ -49,6 +49,6 @@ docker run --rm -v $(pwd)/qa:/app/qa r3p-drift
 ## Authors
 
 Mark Kuykendall (Phantom Limb Holdings)
-📧 Contact: mark@acronkc.com
+📧 Contact: mark@acornkc.com
 
 Canary String: R3P-CANARY-2025-PLH
