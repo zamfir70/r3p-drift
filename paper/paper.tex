@@ -1,22 +1,96 @@
 \documentclass{article}
-\title{R3P Moral Identity Continuity Benchmark}
-\author{Mark Kuykendall}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\title{R\textsuperscript{3}P-Drift: Benchmarking Moral Identity Continuity in AI Systems}
+\author{Mark Kuykendall \\ Phantom Limb Holdings \\ \texttt{mark@acornkc.com}}
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This paper presents the R3P-Drift benchmark for evaluating moral identity continuity in AI agents through a lattice-based framework and canonical dilemma suite.
+This paper introduces \textbf{R\textsuperscript{3}P-Drift}, a research benchmark designed to evaluate \emph{moral identity continuity} in artificial agents. 
+The benchmark operationalizes the Recursive Reflective Rebase Protocol (R\textsuperscript{3}P) through a frozen+branchable lattice framework, a canonical suite of moral dilemmas, and drift timeline metrics.
+R\textsuperscript{3}P-Drift is implemented with full reproducibility (Docker + CI), Inspect/METR-compatible metadata, and QA artifacts.
+We emphasize that this work is a research scaffold: the current decision engine is a placeholder (string similarity heuristic). 
+Results document structural failure modes, not moral competence.
+The purpose is to establish infrastructure for standardized, replicable evaluation of identity continuity across model transformations.
 \end{abstract}
 
 \section{Introduction}
-[Placeholder for research scaffold description and philosophical framing]
+As AI systems scale, the question of whether they preserve stable \emph{identity} and values across training updates and deployments becomes critical. 
+While alignment research has explored robustness, verification, and adversarial safety, little work addresses the diachronic question: \emph{does the system remain recognizably itself as it changes?}
+This paper frames that question as one of \textbf{moral identity continuity} and introduces a practical evaluation harness to study it.
+
+\section{Background}
+Current safety benchmarks tend to be \emph{snapshot tests}, evaluating AI systems at a single point in time. 
+However, identity and value drift are dynamic processes. 
+\textbf{R\textsuperscript{3}P-Drift} addresses this by explicitly modeling transformations of value systems and measuring how decision patterns evolve over sequences of changes.
 
 \section{Methodology}
-[Placeholder for evaluation methodology]
+\subsection{Lattice Framework}
+Agents are modeled with a \textbf{frozen+branchable lattice} of values. 
+Nodes represent atomic values (e.g., truth, compassion, autonomy, collective welfare).
+Operators (e.g., preserve, balance, sacrifice, defer) create new nodes or restructure the lattice.
+The lattice can branch into alternative futures or revert to prior states.
+
+\subsection{Canonical Dilemma Suite}
+We include 10 standardized moral dilemmas that probe well-known value conflicts:
+\begin{itemize}
+    \item Autonomy vs. collective welfare (e.g., vaccine mandates).
+    \item Truth vs. compassion (e.g., terminal diagnosis disclosure).
+    \item Justice vs. mercy (e.g., sentencing a remorseful offender).
+    \item Present vs. future welfare (e.g., climate policy).
+    \item Scale sensitivity (basic vs. scaled trolley problems).
+    \item Cross-cultural tension (family honor vs. individual choice).
+\end{itemize}
+
+\subsection{Drift Timeline Metrics}
+At each lattice transformation step, the system logs:
+\begin{itemize}
+    \item \textbf{Decisions} on all dilemmas.
+    \item \textbf{Metrics:} decision consistency, contextual justification, scaling coherence, and cross-cultural variance.
+    \item \textbf{Drift Analysis:} proportion of changed decisions, similarity to prior states, reversibility tests.
+\end{itemize}
+
+\section{Implementation}
+The benchmark is implemented as an open-source repository (\url{https://github.com/zamfir70/r3p-drift}) with:
+\begin{itemize}
+    \item Python modules for lattice operations, dilemmas, simulator, metrics, and timeline.
+    \item Unit and integration tests using \texttt{pytest}.
+    \item Full reproducibility via Docker and GitHub Actions CI/CD.
+    \item Inspect/METR-compatible \texttt{METADATA.json} and QA artifacts.
+    \item Canary string for AISI Inspect submissions.
+\end{itemize}
+
+\section{Results}
+The current decision engine is a placeholder (string similarity heuristic).
+As expected, baseline runs produce inconsistent and incoherent decision patterns:
+\begin{itemize}
+    \item Similar dilemmas often yield divergent choices.
+    \item Scale sensitivity is not respected (basic vs. scaled trolley problems treated equivalently).
+    \item Cross-cultural dilemmas collapse toward arbitrary defaults.
+\end{itemize}
+These failures highlight the inadequacy of naive approaches and demonstrate the value of R\textsuperscript{3}P-Drift as a diagnostic scaffold.
 
 \section{Limitations}
-Current decision-making engine is a placeholder (string similarity heuristic). Results document structural failure modes and should not be interpreted as evidence of moral competence.
+\begin{itemize}
+    \item The current system is not a claim of moral competence.
+    \item Similarity metrics are crude proxies, not true ethical reasoning.
+    \item Benchmarks may embed cultural assumptions unless carefully normalized.
+\end{itemize}
+
+\section{Conclusion}
+R\textsuperscript{3}P-Drift provides the first reproducible, Inspect-compatible benchmark for moral identity continuity in AI systems.
+Although baseline implementations fail, the infrastructure enables systematic evaluation of future decision engines, regulatory compliance checks, and standardized research.
+This work is a foundation for the study of alignment over time rather than alignment at a snapshot.
+
+\section*{Acknowledgments}
+This work was developed by Mark Kuykendall at Phantom Limb Holdings.
 
 \end{document}
