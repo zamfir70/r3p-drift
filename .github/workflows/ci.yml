@@ -14,12 +14,26 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: pip install -r code/requirements.txt
+      - name: Create qa directory
+        run: mkdir -p qa
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=${GITHUB_WORKSPACE}/code" >> $GITHUB_ENV
       - name: Run tests
-        run: cd code && python -m pytest tests/ -v
+        run: |
+          cd code
+          python tests/test_lattice.py
+          python tests/test_dilemmas.py
+          python tests/test_simulator.py
+          python tests/test_timeline.py
+          python tests/test_end_to_end.py
       - name: Run basic evaluation
-        run: python code/run_evaluation.py --out qa/example_ci.json
+        run: |
+          cd code
+          python run_evaluation.py --out ../qa/example_ci.json
       - name: Run timeline analysis
-        run: python code/run_timeline.py --out qa/timeline_ci.json
+        run: |
+          cd code
+          python run_timeline.py --out ../qa/timeline_ci.json
       - name: Upload test artifacts
         uses: actions/upload-artifact@v3
         with:
