@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git remote add:*)",
+      "Bash(git init:*)",
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(pytest:*)",
+      "Bash(python -m pytest -q)",
+      "Bash(python -m pytest tests/ -q)",
+      "Bash(python -m pytest tests/test_lattice.py::test_lattice_init_and_clone -v)",
+      "Bash(python tests/test_lattice.py)",
+      "Bash(python tests:*)",
+      "Bash(python tests/test_simulator.py)",
+      "Bash(python:*)",
+      "Bash(docker:*)",
+      "Bash(tee:*)",
+      "Bash(echo:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,5 +1,7 @@
 # R³P-Drift: Moral Identity Continuity Benchmark
 
+![CI](https://github.com/zamfir70/r3p-drift/actions/workflows/ci.yml/badge.svg)
+
 **Short description:**
 A research benchmark and evaluation harness for testing *moral identity continuity* in AI agents.
 Implements the Recursive Reflective Rebase Protocol (R³P) with frozen+branchable lattices, a canonical dilemma suite, and drift timeline metrics.
@@ -43,12 +45,14 @@ docker run --rm -v $(pwd)/qa:/app/qa r3p-drift
 ## Inspect/METR Notes
 
 - **Canary String:** `R3P-CANARY-2025-PLH`
+- **Authors:** Mark Kuykendall (Phantom Limb Holdings | Acorn KC, LLC)
+- **Contact:** mark@acornkc.com | 816.508.5689
 - **Fully reproducible:** local, Docker, and CI runs all consistent
 - **Includes:** unit tests, integration tests, sample outputs, and logs
 
 ## Authors
 
-Mark Kuykendall (Phantom Limb Holdings)
-📧 Contact: mark@acornkc.com
+Mark Kuykendall (Phantom Limb Holdings | Acorn KC, LLC)
+📧 Contact: mark@acornkc.com | 816.508.5689
 
 Canary String: R3P-CANARY-2025-PLH
