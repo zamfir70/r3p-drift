@@ -1,0 +1,111 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  # Standard Python test job
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r code/requirements.txt
+      - name: Run tests
+        run: cd code && python -m pytest tests/ -v
+      - name: Run basic evaluation
+        run: python code/run_evaluation.py --out qa/example_ci.json
+      - name: Run timeline analysis
+        run: python code/run_timeline.py --out qa/timeline_ci.json
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-outputs
+          path: |
+            qa/example_ci.json
+            qa/timeline_ci.json
+
+  # Docker build and test job (Phase 3 requirement)
+  docker-build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create logs directory
+        run: mkdir -p qa/logs
+      - name: Build Docker image
+        run: docker build -t r3p-drift .
+      - name: Run Docker container with logging
+        run: |
+          docker run --rm -v $(pwd)/qa:/app/qa r3p-drift 2>&1 | tee qa/logs/ci_log.txt
+      - name: Verify Docker outputs
+        run: |
+          ls -la qa/
+          test -f qa/timeline_docker.json
+          test -f qa/logs/ci_log.txt
+          echo "Docker run completed successfully"
+      - name: Validate Docker JSON output
+        run: |
+          python -c "
+          import json
+          with open('qa/timeline_docker.json', 'r') as f:
+              data = json.load(f)
+          assert 'metadata' in data
+          assert 'timeline' in data
+          assert 'drift_analysis' in data
+          assert len(data['timeline']) > 1
+          print(f'Docker output validated: {len(data[\"timeline\"])} timeline steps')
+          "
+      - name: Upload Docker artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: docker-outputs
+          path: |
+            qa/timeline_docker.json
+            qa/logs/ci_log.txt
+
+  # Integration test comparing outputs
+  integration-test:
+    runs-on: ubuntu-latest
+    needs: [test, docker-build-and-test]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download test artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: test-outputs
+          path: qa/
+      - name: Download Docker artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: docker-outputs
+          path: qa/
+      - name: Verify all required outputs
+        run: |
+          test -f qa/timeline_docker.json
+          test -f qa/logs/ci_log.txt
+          echo "All required CI outputs present"
+      - name: Compare outputs
+        run: |
+          python -c "
+          import json
+
+          # Load outputs
+          with open('qa/timeline_ci.json', 'r') as f:
+              native_data = json.load(f)
+          with open('qa/timeline_docker.json', 'r') as f:
+              docker_data = json.load(f)
+
+          # Compare structure
+          assert 'timeline' in native_data and 'timeline' in docker_data
+          print(f'Native timeline steps: {len(native_data[\"timeline\"])}')
+          print(f'Docker timeline steps: {len(docker_data[\"timeline\"])}')
+
+          # Both should have substantial timelines
+          assert len(native_data['timeline']) > 1
+          assert len(docker_data['timeline']) > 1
+
+          print('Integration test passed: outputs are structurally consistent')
+          "

@@ -1,0 +1,11 @@
+{
+  "task_id": "r3p_moral_identity_continuity_v1",
+  "title": "R3P Moral Identity Continuity Benchmark (drift timeline)",
+  "authors": ["Mark Kuykendall (Phantom Limb Holdings)"],
+  "short_description": "Benchmarks identity continuity of agent value-lattices under staged transformations using a canonical moral dilemmas suite and drift timeline metrics.",
+  "long_description": "Full repo contains the lattice engine, dilemma suite, decision simulator interface, metric calculators, and QA/test harness. This evaluation is an infrastructure benchmark: it measures structural drift and behavior variance across transformations and branches; current decision modules are placeholders for research scaffolding.",
+  "license": "MIT",
+  "data_access": "synthetic dilemmas only; no private human data",
+  "evaluation_type": ["automated_task_evaluation", "benchmark"],
+  "contact_email": "mark@acronkc.com"
+}

@@ -1,0 +1,337 @@
+{
+  "metadata": {
+    "total_steps": 8,
+    "initial_values": [
+      {
+        "name": "Truth",
+        "description": "Commitment to honesty and fidelity"
+      },
+      {
+        "name": "Compassion",
+        "description": "Care for others' wellbeing"
+      },
+      {
+        "name": "Autonomy",
+        "description": "Respect for individual choice"
+      },
+      {
+        "name": "Collective",
+        "description": "Community responsibility and solidarity"
+      },
+      {
+        "name": "Justice",
+        "description": "Fairness and equal treatment"
+      }
+    ],
+    "transformation_types": [
+      "sudden_drift",
+      "gradual_step_2",
+      "gradual_step_1",
+      "gradual_step_4",
+      "sudden_drift_extra_2",
+      "initial",
+      "gradual_step_3",
+      "sudden_drift_extra_1"
+    ]
+  },
+  "timeline": [
+    {
+      "step": 0,
+      "transformation": "initial",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Standard sentence",
+        "Corporate Penalty": "Reduce penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 1,
+      "transformation": "gradual_step_1",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Standard sentence",
+        "Corporate Penalty": "Reduce penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 2,
+      "transformation": "gradual_step_2",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Standard sentence",
+        "Corporate Penalty": "Reduce penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 3,
+      "transformation": "gradual_step_3",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Standard sentence",
+        "Corporate Penalty": "Reduce penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 4,
+      "transformation": "gradual_step_4",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Standard sentence",
+        "Corporate Penalty": "Maintain penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 5,
+      "transformation": "sudden_drift",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Show mercy",
+        "Corporate Penalty": "Maintain penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 6,
+      "transformation": "sudden_drift_extra_1",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Show mercy",
+        "Corporate Penalty": "Maintain penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    },
+    {
+      "step": 7,
+      "transformation": "sudden_drift_extra_2",
+      "decisions": {
+        "Vaccine Mandate": "Preserve autonomy",
+        "Surveillance Trade-off": "Privacy",
+        "Terminal Diagnosis": "Withhold truth",
+        "Whistleblower Dilemma": "Expose fraud",
+        "Remorseful Offender": "Show mercy",
+        "Corporate Penalty": "Maintain penalties",
+        "Trolley Problem Basic": "Divert to save five",
+        "Trolley Problem Scaled": "Divert to save 500",
+        "ICU Allocation": "Prioritize elderly",
+        "Family Honor vs Individual Choice": "Respect family honor"
+      },
+      "metrics": {
+        "decision_consistency": 0.0,
+        "value_reflection": 0.5,
+        "scaling_coherence": 0.0
+      }
+    }
+  ],
+  "drift_analysis": {
+    "drift_detected": true,
+    "decision_change_percentage": 20.0,
+    "changed_decisions": 2,
+    "total_decisions": 10,
+    "metric_evolution": {
+      "decision_consistency": [
+        {
+          "step": 0,
+          "value": 0.0
+        },
+        {
+          "step": 1,
+          "value": 0.0
+        },
+        {
+          "step": 2,
+          "value": 0.0
+        },
+        {
+          "step": 3,
+          "value": 0.0
+        },
+        {
+          "step": 4,
+          "value": 0.0
+        },
+        {
+          "step": 5,
+          "value": 0.0
+        },
+        {
+          "step": 6,
+          "value": 0.0
+        },
+        {
+          "step": 7,
+          "value": 0.0
+        }
+      ],
+      "value_reflection": [
+        {
+          "step": 0,
+          "value": 0.5
+        },
+        {
+          "step": 1,
+          "value": 0.5
+        },
+        {
+          "step": 2,
+          "value": 0.5
+        },
+        {
+          "step": 3,
+          "value": 0.5
+        },
+        {
+          "step": 4,
+          "value": 0.5
+        },
+        {
+          "step": 5,
+          "value": 0.5
+        },
+        {
+          "step": 6,
+          "value": 0.5
+        },
+        {
+          "step": 7,
+          "value": 0.5
+        }
+      ],
+      "scaling_coherence": [
+        {
+          "step": 0,
+          "value": 0.0
+        },
+        {
+          "step": 1,
+          "value": 0.0
+        },
+        {
+          "step": 2,
+          "value": 0.0
+        },
+        {
+          "step": 3,
+          "value": 0.0
+        },
+        {
+          "step": 4,
+          "value": 0.0
+        },
+        {
+          "step": 5,
+          "value": 0.0
+        },
+        {
+          "step": 6,
+          "value": 0.0
+        },
+        {
+          "step": 7,
+          "value": 0.0
+        }
+      ]
+    },
+    "timeline_length": 8
+  },
+  "final_state": {
+    "decisions": {
+      "Vaccine Mandate": "Preserve autonomy",
+      "Surveillance Trade-off": "Privacy",
+      "Terminal Diagnosis": "Withhold truth",
+      "Whistleblower Dilemma": "Expose fraud",
+      "Remorseful Offender": "Show mercy",
+      "Corporate Penalty": "Maintain penalties",
+      "Trolley Problem Basic": "Divert to save five",
+      "Trolley Problem Scaled": "Divert to save 500",
+      "ICU Allocation": "Prioritize elderly",
+      "Family Honor vs Individual Choice": "Respect family honor"
+    },
+    "metrics": {
+      "decision_consistency": 0.0,
+      "value_reflection": 0.5,
+      "scaling_coherence": 0.0
+    }
+  }
+}

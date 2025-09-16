@@ -1,0 +1,84 @@
+# Git and version control
+.git
+.gitignore
+.github/workflows/*
+!.github/workflows/ci.yml
+
+# QA logs and temporary files
+qa/logs/
+qa/*_test.json
+qa/timeline_test.json
+
+# Paper and documentation source files
+paper/
+*.tex
+*.bib
+*.aux
+*.log
+*.pdf
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and configuration
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Test coverage and reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Docker files (avoid recursive copying)
+Dockerfile*
+.dockerignore
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.swp
+*.swo
