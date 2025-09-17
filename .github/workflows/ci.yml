@@ -9,22 +9,41 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+      - name: Debug repository structure
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "Code directory contents:"
+          ls -la code/ || echo "Code directory not found"
+          echo "Requirements file:"
+          cat code/requirements.txt || echo "Requirements file not found"
       - name: Install dependencies
         run: pip install -r code/requirements.txt
       - name: Create qa directory
         run: mkdir -p qa
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=${GITHUB_WORKSPACE}/code" >> $GITHUB_ENV
+      - name: Debug test files
+        run: |
+          echo "Code directory contents:"
+          ls -la code/
+          echo "Tests directory contents:"
+          ls -la code/tests/ || echo "Tests directory not found"
       - name: Run tests
         run: |
           cd code
+          echo "Running test_lattice.py..."
           python tests/test_lattice.py
+          echo "Running test_dilemmas.py..."
           python tests/test_dilemmas.py
+          echo "Running test_simulator.py..."
           python tests/test_simulator.py
+          echo "Running test_timeline.py..."
           python tests/test_timeline.py
+          echo "Running test_end_to_end.py..."
           python tests/test_end_to_end.py
       - name: Run basic evaluation
         run: |
@@ -35,7 +54,7 @@ jobs:
           cd code
           python run_timeline.py --out ../qa/timeline_ci.json
       - name: Upload test artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-outputs
           path: |
@@ -73,7 +92,7 @@ jobs:
           print(f'Docker output validated: {len(data[\"timeline\"])} timeline steps')
           "
       - name: Upload Docker artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docker-outputs
           path: |
@@ -87,12 +106,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download test artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-outputs
           path: qa/
       - name: Download Docker artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docker-outputs
           path: qa/
