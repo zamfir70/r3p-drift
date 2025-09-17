@@ -66,13 +66,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Debug Docker setup
+        run: |
+          echo "Repository structure for Docker:"
+          ls -la
+          echo "Dockerfile contents:"
+          head -20 Dockerfile
+          echo "Docker version:"
+          docker --version
       - name: Create logs directory
         run: mkdir -p qa/logs
       - name: Build Docker image
-        run: docker build -t r3p-drift .
+        run: |
+          echo "Building Docker image..."
+          docker build -t r3p-drift . --progress=plain
+          echo "Docker image built successfully"
       - name: Run Docker container with logging
         run: |
+          echo "Running Docker container..."
           docker run --rm -v $(pwd)/qa:/app/qa r3p-drift 2>&1 | tee qa/logs/ci_log.txt
+          echo "Docker container completed"
       - name: Verify Docker outputs
         run: |
           ls -la qa/

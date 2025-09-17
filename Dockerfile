@@ -28,7 +28,7 @@ RUN mkdir -p qa
 ENV PYTHONPATH="/app/code:${PYTHONPATH}"
 
 # Default command: run tests and timeline analysis
-CMD ["sh", "-c", "cd code && python -m pytest tests/ -v && cd .. && python code/run_timeline.py --out qa/timeline_docker.json && echo 'Docker run completed successfully. Check qa/timeline_docker.json for results.'"]
+CMD ["sh", "-c", "cd code && python tests/test_lattice.py && python tests/test_dilemmas.py && python tests/test_simulator.py && python tests/test_timeline.py && python tests/test_end_to_end.py && cd .. && python code/run_timeline.py --out qa/timeline_docker.json && echo 'Docker run completed successfully. Check qa/timeline_docker.json for results.'"]
 
 # Health check to verify the container is working
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
